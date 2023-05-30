@@ -5,6 +5,14 @@
    <meta property="og:description" content="Home">
     <title>Dine And Dusted</title>
 <style>
+       #fadeImage {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
     .rulo {
         background-color: #111111;
         border-radius: 5px;
@@ -70,6 +78,9 @@
     </div>
  <h1>DINE AND DUSTED</h1>
  <h1>-------------------<h1>
+  <div id="fadeImage">
+    <img src="em_ruler.png">
+  </div>
  <h2>Dine and Dusted (DND) is a little object comic where, the world is endin and they have to <em>eat</em> people.</h2>
  <h4>you could say they are <em>dining</em></h4>
  <h1>INFO BOXES!</h1>
@@ -90,4 +101,38 @@
      <h3>SEXUALITY: BISEXUAL</h3>
  </div>
 </body>
+<script>
+// Variables
+var fadeImage = document.getElementById('fadeImage');
+var fadeTimeout;
+
+// Function to handle image appearance
+function hideImage() {
+  fadeImage.style.opacity = 1;
+  fadeImage.style.display = 'block';
+}
+
+// Function to handle image disappearance
+function showImage() {
+  fadeImage.style.opacity = 0;
+  fadeImage.style.display = 'none';
+}
+
+// Event listeners
+document.addEventListener('mousemove', resetFadeTimeout);
+document.addEventListener('click', resetFadeTimeout);
+
+// Function to reset the fade timeout
+function resetFadeTimeout() {
+  clearTimeout(fadeTimeout);
+  showImage();
+
+  fadeTimeout = setTimeout(function() {
+    hideImage();
+  }, 5000);
+}
+
+// Initialize the fade timeout
+resetFadeTimeout();
+    </script>
 </html>
